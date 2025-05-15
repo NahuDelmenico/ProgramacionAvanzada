@@ -5,8 +5,8 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-		Empleado empleado = new Empleado(0, "empleado", "", false);
-		Administrador admin = new Administrador(0, "admin", "", true);
+		Empleado empleado = new Empleado(0, "empleado", "", 0,"Empleado1","Apellido Empleado");
+		Administrador admin = new Administrador(0, "admin", "", 1);
 		
 		Usuario.getAdministrador().add(admin);
 		Usuario.getEmpleados().add(empleado);
@@ -30,7 +30,7 @@ public class Main {
 				
 				Usuario usuarioLogeado; 
 				usuarioLogeado = Usuario.login(nombre, contra);
-				
+				JOptionPane.showMessageDialog(null, usuarioLogeado);
 				if(usuarioLogeado.login(nombre, contra)==null) {
 					JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos");
 				}else {
@@ -61,7 +61,7 @@ public class Main {
 			                    Menu.subMenu(subMenuOpciones, "Categorias");
 			                    break;
 			                case 4:
-			                	if (usuarioLogeado.isRol()==true) {
+			                	if (usuarioLogeado.getRol()==1) {
 			                		JOptionPane.showMessageDialog(null, "Usuarios");
 				                    Menu.subMenu(subMenuOpciones, "Usuarios");
 								}else {
